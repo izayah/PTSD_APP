@@ -1,20 +1,12 @@
 apply plugin: 'com.android.application'
 
-buildscript {
-    repositories {
-        jcenter() // or mavenCentral()
-    }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
-    }
-}
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.example.ptsd"
+        applicationId "com.example.testmodule"
         minSdkVersion 20
         targetSdkVersion 23
         versionCode 1
