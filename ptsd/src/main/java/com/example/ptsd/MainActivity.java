@@ -20,5 +20,7 @@ public class MainActivity extends Activity {
                 mTextView = (TextView) stub.findViewById(R.id.text);
             }
         });
+
+        String hello_world = "Hello World!";
     }
 }
