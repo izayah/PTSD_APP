@@ -14,7 +14,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="New Button1"
-            android:id="@+id/button1"/>
+            android:id="@+id/button1"
+            android:onClick="sendMessage"/>
 
     <Button
         android:layout_width="0dp"

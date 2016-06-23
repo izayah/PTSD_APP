@@ -3,6 +3,7 @@ package com.example.ptsd;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,11 @@ public class AssessmentActivity extends AppCompatActivity {
     /**
      * The {@link ViewPager} that will host the section contents.
      */
+    public void sendMessage(View view){
+        Intent startAssessment=new Intent(this, DisplayActivity.class);
+        startActivity(startAssessment);
+    }
+
     private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private GridViewPager mGridViewPager;
 

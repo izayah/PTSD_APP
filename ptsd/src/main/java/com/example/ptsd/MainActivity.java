@@ -1,8 +1,10 @@
 package com.example.ptsd;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -16,4 +18,5 @@ public class MainActivity extends Activity {
 
         String hello_world = "Hello World!";
     }
+
 }

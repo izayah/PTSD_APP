@@ -21,7 +21,10 @@
         </activity>
         <activity
             android:name=".AssessmentActivity"
-            android:label="@string/title_activity_assessment"></activity>
+            android:label="@string/title_activity_assessment" />
+        <activity
+            android:name=".DisplayMessage"
+            android:label="@string/title_activity_display_message"></activity>
     </application>
 
 </manifest>
