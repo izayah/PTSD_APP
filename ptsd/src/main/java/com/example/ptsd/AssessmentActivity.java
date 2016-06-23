@@ -2,11 +2,12 @@ package com.example.ptsd;
 
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.view.LayoutInflater;
@@ -15,9 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
 
-//import android.app.Fragment;
 
 public class AssessmentActivity extends AppCompatActivity {
 
@@ -47,13 +46,20 @@ public class AssessmentActivity extends AppCompatActivity {
         //Fragments should be set before the GridPagerAdapter attempts to use them.
         // Preferably here?
 
+        android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragment = new AssessmentFragment();
+        Bundle b = new Bundle();
+        b.putString("s1", "This is a test. Please let me be.");
+        fragment.setArguments(b);
+        FragmentManager fman = this.getFragmentManager();
 
-        mFragmentGridPagerAdapter = new FragmentGridPagerAdapter(getFragmentManager()) {//keep an eye on this
+        android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
             @Override
-            public Fragment getFragment(int i, int j){
+            public android.app.Fragment getFragment(int row, int column){
 
                 AssessmentFragment fragment = new AssessmentFragment();
-                return new Fragment();
+                return new android.app.Fragment();
             }
             @Override
             public int getRowCount() {
@@ -66,7 +72,7 @@ public class AssessmentActivity extends AppCompatActivity {
             }
 
             @Override
-            public Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
+            public android.app.Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
                 return null;
             }
 
@@ -84,14 +90,8 @@ public class AssessmentActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mGridViewPager = (GridViewPager) findViewById(R.id.pager);
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
-
-
-        android.support.FragmentManager fragmentManager = this.getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new AssessmentFragment();
         fragmentTransaction.add(R.id.pager, fragment);
         fragmentTransaction.commit();
-
         setContentView(R.layout.activity_assessment);
     }
 
@@ -151,6 +151,10 @@ public class AssessmentActivity extends AppCompatActivity {
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
+    }
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
     /**
