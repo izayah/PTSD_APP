@@ -1,14 +1,12 @@
 package com.example.ptsd;
 
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
-
-//import android.app.Fragment;
 import android.app.FragmentManager;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 import android.view.LayoutInflater;
@@ -16,10 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
 
-public class AssessmentActivity extends appCompatActivity {
+//import android.app.Fragment;
+
+public class AssessmentActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -45,7 +45,7 @@ public class AssessmentActivity extends appCompatActivity {
         //to access fragments.
 
         //Fragments should be set before the GridPagerAdapter attempts to use them.
-        // Prefereably here?
+        // Preferably here?
 
 
         mFragmentGridPagerAdapter = new FragmentGridPagerAdapter(getFragmentManager()) {//keep an eye on this
@@ -86,7 +86,7 @@ public class AssessmentActivity extends appCompatActivity {
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
 
 
-        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        android.support.FragmentManager fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new AssessmentFragment();
         fragmentTransaction.add(R.id.pager, fragment);
