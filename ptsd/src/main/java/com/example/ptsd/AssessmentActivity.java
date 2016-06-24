@@ -34,10 +34,7 @@ public class AssessmentActivity extends AppCompatActivity {
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    public void sendMessage(View view){
-        Intent startAssessment=new Intent(this, DisplayActivity.class);
-        startActivity(startAssessment);
-    }
+
 
     private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private GridViewPager mGridViewPager;

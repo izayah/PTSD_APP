@@ -18,5 +18,9 @@ public class MainActivity extends Activity {
 
         String hello_world = "Hello World!";
     }
+    public void sendMessage(View view){
+        Intent startAssessment=new Intent(this, DisplayMessage.class);
+        startActivity(startAssessment);
+    }
 
 }

@@ -16,11 +16,9 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/assessment_button"
             android:id="@+id/button1"
-        android:background="@color/accent_material_dark" />
+            android:background="@color/accent_material_dark"
             android:text="New Button1"
-            android:id="@+id/button1"
             android:onClick="sendMessage"/>
 
     <Button
