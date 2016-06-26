@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ptsd">
 
-    <!--<uses-feature android:name="android.hardware.type.watch" />-->
+    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:allowBackup="true"
@@ -24,11 +24,16 @@
             android:label="@string/title_activity_assessment" />
         <activity
             android:name=".DisplayMessage"
-            android:label="@string/title_activity_display_message"></activity>
-            android:label="@string/title_activity_assessment" />
-        <!--<activity
+            android:label="@string/title_activity_display_message" />
+        android:label="@string/title_activity_assessment" />
+        <!--
+            <activity
             android:name=".StressToolsListFragment"
-            android:label="@string/title_activity_stress_tools"></activity>-->
+            android:label="@string/title_activity_stress_tools"></activity>
+        -->
+        <activity
+            android:name=".StressToolsActivity"
+            android:label="@string/title_activity_stress_tools"></activity>
     </application>
 
 </manifest>

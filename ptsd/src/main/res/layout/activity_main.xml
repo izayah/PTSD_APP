@@ -7,18 +7,15 @@
     android:id="@+id/main_layout"
     android:orientation="horizontal"
     tools:context="com.example.ptsd.MainActivity"
-    tools:deviceIds="wear_round"
-    android:backgroundTintMode="src_over"
-    android:backgroundTint="@color/material_deep_teal_500"
-    android:background="@color/abc_search_url_text_normal">
+    tools:deviceIds="wear_round">
+
 
     <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:text="@string/assessment_button"
             android:id="@+id/button1"
-            android:background="@color/accent_material_dark"
-            android:text="New Button1"
             android:onClick="sendMessage"/>
 
     <Button
@@ -26,8 +23,8 @@
         android:layout_height="fill_parent"
         android:text="@string/stress_tools_button"
         android:id="@+id/button2"
-        android:layout_weight="1"
-        android:background="@color/abc_secondary_text_material_light" />
+        android:layout_weight="1" />
+
 
 </LinearLayout>
 
