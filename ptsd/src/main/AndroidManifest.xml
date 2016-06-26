@@ -25,6 +25,10 @@
         <activity
             android:name=".DisplayMessage"
             android:label="@string/title_activity_display_message"></activity>
+            android:label="@string/title_activity_assessment" />
+        <!--<activity
+            android:name=".StressToolsListFragment"
+            android:label="@string/title_activity_stress_tools"></activity>-->
     </application>
 
 </manifest>
