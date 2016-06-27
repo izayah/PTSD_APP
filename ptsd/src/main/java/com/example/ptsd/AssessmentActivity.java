@@ -42,6 +42,7 @@ public class AssessmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_assessment);
 
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity. Uses the Fragment Manager param
@@ -50,15 +51,15 @@ public class AssessmentActivity extends AppCompatActivity {
         //Fragments should be set before the GridPagerAdapter attempts to use them.
         // Preferably here?
 
-        android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
+        /*android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new AssessmentFragment();
         Bundle b = new Bundle();
         b.putString("s1", "This is a test. Please let me be.");
         fragment.setArguments(b);
-        FragmentManager fman = this.getFragmentManager();
+        FragmentManager fman = this.getFragmentManager();*/
 
-        android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
+        /*android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
             @Override
             public android.app.Fragment getFragment(int row, int column){
 
@@ -89,13 +90,13 @@ public class AssessmentActivity extends AppCompatActivity {
             public boolean isViewFromObject(View view, Object o) {
                 return false;
             }
-        };
+        };*/
 
         // Set up the ViewPager with the sections adapter.
-        mGridViewPager = (GridViewPager) findViewById(R.id.pager);
+       /* mGridViewPager = (GridViewPager) findViewById(R.id.pager);
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
         fragmentTransaction.add(R.id.pager, fragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
         setContentView(R.layout.activity_assessment);
     }
 
