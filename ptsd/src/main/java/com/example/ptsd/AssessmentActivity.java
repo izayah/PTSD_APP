@@ -1,10 +1,14 @@
 package com.example.ptsd;
 
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.wearable.view.FragmentGridPagerAdapter;
+import android.support.wearable.view.GridViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,13 +29,13 @@ public class AssessmentActivity extends AppCompatActivity {
      */
 
 
-//    private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
-//    private GridViewPager mGridViewPager;
+    private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
+    private GridViewPager mGridViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assessment);
+        //setContentView(R.layout.activity_assessment);
 
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity. Uses the Fragment Manager param
@@ -40,15 +44,15 @@ public class AssessmentActivity extends AppCompatActivity {
         //Fragments should be set before the GridPagerAdapter attempts to use them.
         // Preferably here?
 
-        /*android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
+        android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new AssessmentFragment();
         Bundle b = new Bundle();
         b.putString("s1", "This is a test. Please let me be.");
         fragment.setArguments(b);
-        FragmentManager fman = this.getFragmentManager();*/
+        FragmentManager fman = this.getFragmentManager();
 
-        /*android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
+        android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
             @Override
             public android.app.Fragment getFragment(int row, int column){
 
@@ -65,7 +69,7 @@ public class AssessmentActivity extends AppCompatActivity {
                 return 0;
             }
 
-            @Override
+           /* @Override
             public android.app.Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
                 return null;
             }
@@ -78,15 +82,15 @@ public class AssessmentActivity extends AppCompatActivity {
             @Override
             public boolean isViewFromObject(View view, Object o) {
                 return false;
-            }
-        };*/
+            }*/
+        };
 
         // Set up the ViewPager with the sections adapter.
-       /* mGridViewPager = (GridViewPager) findViewById(R.id.pager);
+        mGridViewPager = (GridViewPager) findViewById(R.id.pager);
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
         fragmentTransaction.add(R.id.pager, fragment);
-        fragmentTransaction.commit();*/
-        //setContentView(R.layout.activity_assessment);
+        fragmentTransaction.commit();
+        setContentView(R.layout.activity_assessment);
     }
 
 

@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
 /**
@@ -51,7 +50,7 @@ public class AssessmentFragment extends android.support.v4.app.Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    TextView mTextView = (TextView)getView().findViewById(R.id.mainText);
+    //TextView mTextView = (TextView)getView().findViewById(R.id.mainText);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +59,7 @@ public class AssessmentFragment extends android.support.v4.app.Fragment {
             question_number = getArguments().getInt("q_number");
             question_text = getArguments().getString("q_text");
         }
-        mTextView.setText(getArguments().getString("s1"));
+        //mTextView.setText(getArguments().getString("s1"));
     }
 
     @Override

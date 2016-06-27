@@ -18,7 +18,7 @@
             android:id="@+id/button1"
             android:onClick="sendMessage"/>
 
-    <TextView
+    <!--<TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -34,7 +34,7 @@
         android:id="@+id/button"
         android:layout_gravity="center_vertical"
         android:layout_weight="1" />
-
+-->
     <Button
         android:layout_width="0dp"
         android:layout_height="fill_parent"
