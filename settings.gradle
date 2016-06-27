@@ -1,1 +1,1 @@
-include ':MainModule', ':ptsd'
+include ':ptsd', ':ptsd_mobile'

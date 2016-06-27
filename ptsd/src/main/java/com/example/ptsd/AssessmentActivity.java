@@ -1,23 +1,12 @@
 package com.example.ptsd;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.wearable.view.FragmentGridPagerAdapter;
-import android.support.wearable.view.GridViewPager;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 
 public class AssessmentActivity extends AppCompatActivity {
@@ -36,8 +25,8 @@ public class AssessmentActivity extends AppCompatActivity {
      */
 
 
-    private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
-    private GridViewPager mGridViewPager;
+//    private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
+//    private GridViewPager mGridViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +86,7 @@ public class AssessmentActivity extends AppCompatActivity {
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
         fragmentTransaction.add(R.id.pager, fragment);
         fragmentTransaction.commit();*/
-        setContentView(R.layout.activity_assessment);
+        //setContentView(R.layout.activity_assessment);
     }
 
 
@@ -126,20 +115,20 @@ public class AssessmentActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
-        /**
+    /*public static class PlaceholderFragment extends Fragment {
+        *//**
          * The fragment argument representing the section number for this
          * fragment.
-         */
+         *//*
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
 
-        /**
+        *//**
          * Returns a new instance of this fragment for the given section
          * number.
-         */
+         *//*
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -161,7 +150,7 @@ public class AssessmentActivity extends AppCompatActivity {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
+*/
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

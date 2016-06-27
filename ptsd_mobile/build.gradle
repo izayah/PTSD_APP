@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 buildscript {
     repositories {
         jcenter() // or mavenCentral()
@@ -10,13 +11,13 @@ buildscript {
     }
 }
 android {
-
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-   defaultConfig {
-        applicationId "com.example.ptsd"
-        minSdkVersion 20
-        targetSdkVersion 23
+
+    defaultConfig {
+        applicationId "com.example.ptsd_mobile"
+        minSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -25,20 +26,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            debuggable true
-        }
-    }
-    productFlavors {
     }
 }
 
 dependencies {
-    //compile 'android.support.v4.view.PagerAdapter'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.google.android.support:wearable:2.0.0-alpha1'
-    compile 'com.google.android.gms:play-services-wearable:9.0.2'
-    compile 'com.android.support:support-v13:24.0.0'
-    compile 'com.android.support:support-v4:24.0.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:design:24.0.0'
+    //wearApp project(':wearable')
 }
