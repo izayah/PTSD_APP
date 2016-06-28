@@ -35,6 +35,8 @@
         android:id="@+id/q2"
         android:tag="Question2" />
 
+
+
    </android.support.wearable.view.GridViewPager>
 
 

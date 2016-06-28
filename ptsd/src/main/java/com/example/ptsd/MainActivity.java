@@ -19,10 +19,14 @@ public class MainActivity extends Activity {
         String hello_world = "Hello World!";
     }
 
-            public void sendMessage(View view){
+            public void OpenAssessment(View view){
             Intent startAssessment = new Intent(MainActivity.this, AssessmentActivity.class);
             startActivity(startAssessment);
         }
+    public void OpenStressTools(View view){
+        Intent startStressTools = new Intent(MainActivity.this, StressToolsActivity.class);
+        startActivity(startStressTools);
+    }
 
     }
 
