@@ -1,19 +1,29 @@
 package com.example.ptsd;
 
-
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.wearable.view.FragmentGridPagerAdapter;
+import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.GridViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnApplyWindowInsetsListener;
+import android.view.ViewGroup;
+import android.view.WindowInsets;
 
+//import android.support.v13.app.FragmentPagerAdapter;
+/*import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;*/
 
-public class AssessmentActivity extends AppCompatActivity {
+public class AssessmentActivity extends AppCompatActivity
+            implements AssessmentFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -28,36 +38,48 @@ public class AssessmentActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
 
-
-    private FragmentGridPagerAdapter mFragmentGridPagerAdapter;
+   // private android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private GridViewPager mGridViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_assessment);
-
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity. Uses the Fragment Manager param
         //to access fragments.
 
-        //Fragments should be set before the GridPagerAdapter attempts to use them.
-        // Preferably here?
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-        android.support.v4.app.FragmentManager fragmentManager = this.getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new AssessmentFragment();
+        AssessmentFragment fragment = new AssessmentFragment();
         Bundle b = new Bundle();
         b.putString("s1", "This is a test. Please let me be.");
         fragment.setArguments(b);
-        FragmentManager fman = this.getFragmentManager();
 
-        android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(fman) {//keep an eye on this
+        AssessmentFragment fragment2 = new AssessmentFragment();
+        Bundle b2 = new Bundle();
+        b2.putString("s2", "This is a test. Please let me be. Don't mess with me.");
+        fragment2.setArguments(b2);
+
+        fragmentTransaction.add(R.id.pager, fragment);
+        fragmentTransaction.add(R.id.q2, fragment2);
+
+        android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(getFragmentManager()) {//keep an eye on this
             @Override
-            public android.app.Fragment getFragment(int row, int column){
+            public  android.app.Fragment getFragment(int row, int column){
 
-                AssessmentFragment fragment = new AssessmentFragment();
-                return new android.app.Fragment();
+                //testing
+                if(row == 1 && column == 1){
+                    AssessmentFragment fragment = new AssessmentFragment();
+                    Bundle b = new Bundle();
+                    b.putString("s1", "This is a test. Please let me be.");
+                    fragment.setArguments(b);
+                    return fragment;
+
+                }
+
+               else
+                    return null;
             }
             @Override
             public int getRowCount() {
@@ -69,7 +91,7 @@ public class AssessmentActivity extends AppCompatActivity {
                 return 0;
             }
 
-           /* @Override
+           /*@Override
             public android.app.Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
                 return null;
             }
@@ -84,15 +106,32 @@ public class AssessmentActivity extends AppCompatActivity {
                 return false;
             }*/
         };
-
-        // Set up the ViewPager with the sections adapter.
+        final Resources res = getResources();
+        setContentView(R.layout.activity_assessment);
         mGridViewPager = (GridViewPager) findViewById(R.id.pager);
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
-        fragmentTransaction.add(R.id.pager, fragment);
-        fragmentTransaction.commit();
-        setContentView(R.layout.activity_assessment);
-    }
+        mGridViewPager.setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {
+            @Override
+            public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+                final boolean round = insets.isRound();
+                int rowMargin = res.getDimensionPixelOffset(R.dimen.page_row_margin);
+                int colMargin = res.getDimensionPixelOffset(round ?
+                        R.dimen.page_column_margin_round : R.dimen.page_column_margin);
+                mGridViewPager.setPageMargins(rowMargin, colMargin);
+                mGridViewPager.onApplyWindowInsets(insets);
+                return insets;
+            }
+        });
+        mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
+        DotsPageIndicator dotsPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
+        dotsPageIndicator.setPager(mGridViewPager);
+//        fragmentTransaction.add(mFragmentGridPagerAdapter.getFragment(1,1));
+//        fragmentTransaction.commit();
+        ((ViewGroup)mGridViewPager.getParent()).removeView(mGridViewPager);
+        setContentView(mGridViewPager);
+        beginAssessment();
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,80 +155,19 @@ public class AssessmentActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    /*public static class PlaceholderFragment extends Fragment {
-        *//**
-         * The fragment argument representing the section number for this
-         * fragment.
-         *//*
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        *//**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         *//*
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_assessment, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        return;
     }
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+
+    public void beginAssessment(){
+
+
+        return;
     }
-*/
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-   /* public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "SECTION 1";
-                case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
-            }
-            return null;
-        }
-    }*/
-
+    public void openMain(View view){
+        Intent startAssessment = new Intent(AssessmentActivity.this, MainActivity.class);
+        startActivity(startAssessment);
+    }
 }
+

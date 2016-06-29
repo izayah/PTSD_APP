@@ -1,42 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
 <LinearLayout
-
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-</LinearLayout>
--->
+    <android.support.wearable.view.DotsPageIndicator
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/page_indicator"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    </android.support.wearable.view.DotsPageIndicator>
 
-<android.support.wearable.view.GridViewPager xmlns:tools="http://schemas.android.com/tools"
+    <android.support.wearable.view.GridViewPager xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.ptsd.MainActivity"
+    android:layout_width="213dp"
+    android:layout_height="116dp"
+    android:layout_gravity="top"
+    tools:context="com.example.ptsd.AssessmentActivity"
     tools:deviceIds="wear_round"
     android:id="@+id/pager">
 
-    <fragment class="com.example.ptsd.AssessmentFragment"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:label="Question1"
-        tools:layout="@android:layout/two_line_list_item"
-        android:id="@+id/q1"
-        android:tag="Question1" />
 
-    <fragment class="com.example.ptsd.AssessmentFragment"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:label="Question1"
-        tools:layout="@android:layout/simple_list_item_multiple_choice"
-        android:id="@+id/q2"
-        android:tag="Question2" />
+        <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="false"
+        android:orientation="vertical"
+        android:id="@+id/scroller">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="none"
+                android:scrollHorizontally="false"
+                android:text="@string/how_often_in_the_past_week_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+                android:id="@+id/question_text"/>-->
 
 
 
+        <fragment class="com.example.ptsd.AssessmentFragment"
+            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:label="@string/question1"
+            tools:layout="@android:layout/two_line_list_item"
+            android:id="@+id/q1"
+            android:tag="Question1" />
+
+        <fragment class="com.example.ptsd.AssessmentFragment"
+            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:label="@string/question2"
+            tools:layout="@android:layout/simple_list_item_multiple_choice"
+            android:id="@+id/q2"
+            android:tag="Question2"/>
+        </FrameLayout>
+    </ScrollView>
    </android.support.wearable.view.GridViewPager>
-
+</LinearLayout>
 
