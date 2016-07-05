@@ -1,5 +1,6 @@
 package com.example.ptsd;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -42,7 +43,7 @@ public class AssessmentActivity extends AppCompatActivity
 
    // private android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private GridViewPager mGridViewPager;
-
+    @SuppressLint("CommitTransaction")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,8 @@ public class AssessmentActivity extends AppCompatActivity
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+
 
         AssessmentFragment fragment = new AssessmentFragment();
         Bundle b = new Bundle();
@@ -161,13 +164,13 @@ public class AssessmentActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        return;
+
     }
 
     public void beginAssessment(){
 
 
-        return;
+
     }
     public void openMain(View view){
         Intent startAssessment = new Intent(AssessmentActivity.this, MainActivity.class);

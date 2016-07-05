@@ -8,8 +8,8 @@
     <string name="assessment_button">Assess-&#xA;ment</string>
     <string name="test_question">Here will be a test question with things that are testy and questiony</string>
     <string name="stress_tools_button">Stress Tools</string>
-    <string name="Play">Stress Tools</string>
-    <string name="Pause">Stress Tools</string>
+    <string name="Play">Play</string>
+    <string name="Pause">Pause</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
