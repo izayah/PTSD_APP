@@ -1,11 +1,9 @@
 package com.example.ptsd;
 
-import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,14 +14,8 @@ import android.support.wearable.view.GridViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnApplyWindowInsetsListener;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
-import android.widget.Button;
-
-//import android.support.v13.app.FragmentPagerAdapter;
-/*import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;*/
 
 public class AssessmentActivity extends AppCompatActivity
             implements AssessmentFragment.OnFragmentInteractionListener {
@@ -43,33 +35,15 @@ public class AssessmentActivity extends AppCompatActivity
 
    // private android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private GridViewPager mGridViewPager;
-    @SuppressLint("CommitTransaction")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        // Create the adapter that will return a fragment for each of the
-        // primary sections of the activity. Uses the Fragment Manager param
-        //to access fragments.
-
+        setContentView(R.layout.activity_assessment);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-
-
-        AssessmentFragment fragment = new AssessmentFragment();
-        Bundle b = new Bundle();
-        b.putString("s1", "This is a test. Please let me be.");
-        fragment.setArguments(b);
-
-        AssessmentFragment fragment2 = new AssessmentFragment();
-        Bundle b2 = new Bundle();
-        b2.putString("s2", "This is a test. Please let me be. Don't mess with me.");
-        fragment2.setArguments(b2);
-
-        fragmentTransaction.add(R.id.pager, fragment);
-        fragmentTransaction.add(R.id.q2, fragment2);
+        AssessmentFragment f1 = (AssessmentFragment) getFragmentManager().findFragmentById(R.id.q1);
+        fragmentTransaction.add(R.id.frame, f1);
 
         android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter = new android.support.wearable.view.FragmentGridPagerAdapter(getFragmentManager()) {//keep an eye on this
             @Override
@@ -98,26 +72,25 @@ public class AssessmentActivity extends AppCompatActivity
                 return 0;
             }
 
-           /*@Override
+           @Override
             public android.app.Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
-                return null;
+               AssessmentFragment fragment = new AssessmentFragment();
+               Bundle b = new Bundle();
+               b.putInt("question_number", 1);
+               b.putString("question_text", "@string/random_text");
+               fragment.setArguments(b);
+               return fragment;
             }
-
             @Override
             public void destroyItem(ViewGroup viewGroup, int i, int i1, Object o) {
-
             }
-
-            @Override
-            public boolean isViewFromObject(View view, Object o) {
-                return false;
-            }*/
         };
+
         final Resources res = getResources();
         setContentView(R.layout.activity_assessment);
         mGridViewPager = (GridViewPager) findViewById(R.id.pager);
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
-        mGridViewPager.setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {
+        mGridViewPager.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
             @Override
             public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
                 final boolean round = insets.isRound();
@@ -132,8 +105,7 @@ public class AssessmentActivity extends AppCompatActivity
         mGridViewPager.setAdapter(mFragmentGridPagerAdapter);
         DotsPageIndicator dotsPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
         dotsPageIndicator.setPager(mGridViewPager);
-//        fragmentTransaction.add(mFragmentGridPagerAdapter.getFragment(1,1));
-//        fragmentTransaction.commit();
+        fragmentTransaction.commit();
         ((ViewGroup)mGridViewPager.getParent()).removeView(mGridViewPager);
         setContentView(mGridViewPager);
         beginAssessment();
@@ -164,13 +136,13 @@ public class AssessmentActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
+        return;
     }
 
     public void beginAssessment(){
 
 
-
+        return;
     }
     public void openMain(View view){
         Intent startAssessment = new Intent(AssessmentActivity.this, MainActivity.class);
