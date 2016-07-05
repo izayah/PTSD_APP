@@ -35,20 +35,20 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1" />-->
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:text="@string/stress_tools_button"
-        android:id="@+id/button2"
-        android:layout_weight="1"
-        android:onClick="OpenStressTools"/>
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:layout_weight="1"></LinearLayout>
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/stress_tools_button"
+            android:id="@+id/button2"
+            android:onClick="OpenStressTools" />
+    </LinearLayout>
 
 
 </LinearLayout>

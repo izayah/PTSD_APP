@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.View.OnApplyWindowInsetsListener;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.widget.Button;
 
 //import android.support.v13.app.FragmentPagerAdapter;
 /*import android.support.v4.app.Fragment;
@@ -44,6 +46,8 @@ public class AssessmentActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         // Create the adapter that will return a fragment for each of the
         // primary sections of the activity. Uses the Fragment Manager param
         //to access fragments.
