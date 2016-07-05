@@ -8,8 +8,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-v13/24.0.0/dbc0211c7f8820cf9b5994f5d00dfc49dfbd98c4/support-v13-24.0.0-sources.jar!/" />
-      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v13/24.0.0/support-v13-24.0.0-sources.jar!/" />
-      <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v13/24.0.0/support-v13-24.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

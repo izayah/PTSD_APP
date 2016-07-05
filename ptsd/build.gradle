@@ -11,12 +11,12 @@ buildscript {
 }
 android {
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 23
 
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion '23.0.3'
    defaultConfig {
         applicationId "com.example.ptsd"
-        minSdkVersion 20
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
