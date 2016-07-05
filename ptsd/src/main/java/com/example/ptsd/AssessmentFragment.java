@@ -1,16 +1,14 @@
 package com.example.ptsd;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-//import android.support.v4.app.Fragment;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//import android.support.v4.app.Fragment;
 
-/**
+
+/*
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link AssessmentFragment.OnFragmentInteractionListener} interface
@@ -28,7 +26,7 @@ public class AssessmentFragment extends android.app.Fragment {
     private String question_text;
     private String question_response;
 
-    private OnFragmentInteractionListener mListener;
+    //private OnFragmentInteractionListener mListener;
 
     public AssessmentFragment() {
         // Required empty public constructor
@@ -42,17 +40,13 @@ public class AssessmentFragment extends android.app.Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    //TextView mTextView = (TextView)getView().findViewById(R.id.mainText);
 
-    @Override
+  /* @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            question_number = getArguments().getInt("q_number");
-            question_text = getArguments().getString("q_text");
-        }
-        //mTextView.setText(getArguments().getString("s1"));
-    }
+            //question_number = getArguments().getInt("q_number");
+            question_text = "This was made in the AssessmentFragment Class";
+        }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,7 +55,7 @@ public class AssessmentFragment extends android.app.Fragment {
         return inflater.inflate(R.layout.fragment_assessment, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    /*// TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -85,7 +79,7 @@ public class AssessmentFragment extends android.app.Fragment {
         mListener = null;
     }
 
-    /**
+    *//**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
@@ -94,9 +88,9 @@ public class AssessmentFragment extends android.app.Fragment {
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
-     */
+     *//*
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
+    }*/
 }

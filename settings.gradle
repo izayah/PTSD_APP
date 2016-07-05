@@ -1,1 +1,1 @@
-include ':ptsd', ':ptsd_mobile'
+include ':ptsd', ':ptsd_mobile', ':mobile'
