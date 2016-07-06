@@ -10,6 +10,26 @@
     <string name="stress_tools_button">Stress Tools</string>
     <string name="play">play</string>
     <string name="pause">pause</string>
+    <string name="Question 1">In the past month, how much were you bothered by repeated, disturbing, and unwanted memories of the stressful experience?
+</string>
+    <string name="Question 2">In the past month, how much were you bothered by sudden feelings or actions as if the stressful experience were actually happening again?
+</string>
+    <string name="Question 3">In the past month, how much were you bothered by feeling very upset when something reminded you of the stressful experience?
+</string>
+    <string name="Question 4">In the past month, how much were you bothered by having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing or sweating)?
+</string>
+    <string name="Question 5">In the past month, how much were you bothered by avoiding memories, thoughts, or feelings related to the stressful experience?
+</string>
+    <string name="Question 6">In the past month, how much were you bothered by trouble remembering important parts of the stressful experience?
+</string>
+    <string name="Question 7">n the past month, how much were you bothered by blaming yourself or someone else for the stressful experience or what happened after it?
+</string>
+    <string name="Question 8">In the past month, how much were you bothered by having strong negative feelings such as fear, horror, anger, guilt, or shame?
+</string>
+    <string name="Question 9">In the past month, how much were you bothered by loss of interest in activities that you used to enjoy?
+</string>
+    <string name="Question 10">In the past month, how much were you bothered by feeling distant or cut off from other people?
+</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
