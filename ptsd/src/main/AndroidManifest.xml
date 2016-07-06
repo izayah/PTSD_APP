@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ptsd">
 
-   <!-- <uses-feature android:name="android.hardware.type.watch" -->/>
+    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
 
     <application
         android:allowBackup="true"
@@ -10,28 +12,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".AssessmentActivity"
             android:label="@string/title_activity_assessment" />
-
-        android:label="@string/title_activity_assessment" />
-        <!--
-            <activity
-            android:name=".StressToolsListFragment"
-            android:label="@string/title_activity_stress_tools"></activity>
-        -->
         <activity
             android:name=".StressToolsActivity"
-            android:label="@string/title_activity_stress_tools"></activity>
+            android:label="@string/title_activity_stress_tools" />
+
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
+
+        <activity
+            android:name=".AmbientActivity"
+            android:label="@string/title_activity_ambient"
+            android:theme="@android:style/Theme.DeviceDefault.Light"></activity>
     </application>
 
 </manifest>

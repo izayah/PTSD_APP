@@ -1,12 +1,18 @@
 package com.example.ptsd;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -17,17 +23,20 @@ import android.view.ViewGroup;
  * Use the {@link StressToolsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StressToolsFragment extends Fragment {
+public class StressToolsFragment extends Fragment implements RecognitionListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int SPEECH_REQUEST_CODE = 0;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    /*This needs to be changed whenever a question is added or deelted*/
+    Map answers;
     private OnFragmentInteractionListener mListener;
+    int currentQuestionNumber = 0;
 
     public StressToolsFragment() {
         // Required empty public constructor
@@ -35,10 +44,7 @@ public class StressToolsFragment extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * this fragment using the provided parameters..
      * @return A new instance of fragment StressToolsFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -54,6 +60,7 @@ public class StressToolsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        displaySpeechRecognizer();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -89,6 +96,90 @@ public class StressToolsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+    private void displaySpeechRecognizer() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+// Start the activity, the intent will be populated with the speech text
+        startActivityForResult(intent, SPEECH_REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SPEECH_REQUEST_CODE && resultCode == -1/*RESULT_OK*/) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            String spokenText = results.get(0);
+            // Do something with spokenText
+            if (results.get(0) == "one"){
+                answers.put("Question"+currentQuestionNumber, 1);
+            }
+            if (results.get(0) == "two"){
+                answers.put("Question"+currentQuestionNumber, 2);
+            }
+            if (results.get(0) == "three"){
+                answers.put("Question"+currentQuestionNumber, 3);
+            }
+            if (results.get(0) == "four"){
+                answers.put("Question"+currentQuestionNumber, 4);
+            }
+            if (results.get(0) == "five"){
+                answers.put("Question"+currentQuestionNumber, 5);
+            }
+            else{
+                //if the current string in result isn't a qualified answer,
+                //remove it and read the next string
+                results.remove(0);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onReadyForSpeech(Bundle params) {
+
+    }
+
+    @Override
+    public void onBeginningOfSpeech() {
+
+    }
+
+    @Override
+    public void onRmsChanged(float rmsdB) {
+
+    }
+
+    @Override
+    public void onBufferReceived(byte[] buffer) {
+
+    }
+
+    @Override
+    public void onEndOfSpeech() {
+
+    }
+
+    @Override
+    public void onError(int error) {
+
+    }
+
+    @Override
+    public void onResults(Bundle results) {
+
+    }
+
+    @Override
+    public void onPartialResults(Bundle partialResults) {
+
+    }
+
+    @Override
+    public void onEvent(int eventType, Bundle params) {
+
     }
 
     /**
