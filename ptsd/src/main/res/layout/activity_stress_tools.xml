@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.wearable.view.BoxInsetLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".StressToolsActivity">
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ptsd.StressToolsActivity">
 
-    <TextView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="@string/play"
+            android:id="@+id/play"
+            android:layout_gravity="left|bottom" />
+
+        <Button
+        style="?android:attr/buttonStyleSmall"
+        android:theme="@style/Theme.AppCompat.Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:text="@string/pause"
+        android:id="@+id/pause"
+        android:layout_gravity="right|bottom" />
+
+    </FrameLayout>
 
 </android.support.v4.widget.NestedScrollView>
 </android.support.wearable.view.BoxInsetLayout>
