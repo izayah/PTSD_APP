@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <style android:name="CustomActionBarStyle">
+        <item android:name="android:titleTextStyle">@style/NoTitleText</item>
+        <item android:name="android:subtitleTextStyle">@style/NoTitleText</item>
+    </style>
+
+    <style android:name="NoTitleText">
+        <item android:name="android:textSize">0sp</item>
+        <item android:name="android:textColor">#00000000</item>
+    </style>
+
+</selector>

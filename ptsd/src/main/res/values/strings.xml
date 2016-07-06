@@ -105,4 +105,6 @@
     <string name="question1">Question1</string>
     <string name="question2">Question1</string>
     <string name="random_text">How often in the past week ...........yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy..</string>
+    <string name="title_activity_ambient">AmbientActivity</string>
+    <string name="hello_world">Hello World!</string>
 </resources>

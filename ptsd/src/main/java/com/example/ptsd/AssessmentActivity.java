@@ -1,7 +1,9 @@
 package com.example.ptsd;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowInsets;
+
+import java.util.List;
 
 public class AssessmentActivity extends AppCompatActivity{
             //implements AssessmentFragment.OnFragmentInteractionListener {
@@ -29,11 +33,15 @@ public class AssessmentActivity extends AppCompatActivity{
      */
 
    // private android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter;
+    private static final int SPEECH_REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment);
+
+        displaySpeechRecognizer();
+
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
         final Resources res = getResources();
         pager.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
@@ -106,5 +114,25 @@ public class AssessmentActivity extends AppCompatActivity{
         Intent startAssessment = new Intent(AssessmentActivity.this, MainActivity.class);
         startActivity(startAssessment);
     }*/
+
+    private void displaySpeechRecognizer() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+// Start the activity, the intent will be populated with the speech text
+        startActivityForResult(intent, SPEECH_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            String spokenText = results.get(0);
+            // Do something with spokenText
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
 
