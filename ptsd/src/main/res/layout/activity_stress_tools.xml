@@ -16,11 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="152dp"
+            android:text="@string/breathing_stress_tool"/>
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:theme="@style/Theme.AppCompat.Light"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:text="@string/play"
             android:id="@+id/play"
             android:layout_gravity="left|bottom" />
@@ -33,6 +38,12 @@
         android:text="@string/pause"
         android:id="@+id/pause"
         android:layout_gravity="right|bottom" />
+
+        <MediaController
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mediaController"
+            android:layout_gravity="left|bottom" />
 
     </FrameLayout>
 

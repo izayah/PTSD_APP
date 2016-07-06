@@ -15,7 +15,7 @@ Button play, pause;
         play=(Button) findViewById(R.id.play);
         pause=(Button) findViewById(R.id.pause);
 
-        final MediaPlayer sound=MediaPlayer.create(this, R.raw.demoaudio);
+        final MediaPlayer sound=MediaPlayer.create(this, R.raw.rain);
 
         play.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -40,7 +40,7 @@ public class AssessmentActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment);
 
-        displaySpeechRecognizer();
+        //displaySpeechRecognizer();
 
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
         final Resources res = getResources();
@@ -61,7 +61,7 @@ public class AssessmentActivity extends AppCompatActivity{
         DotsPageIndicator dotsPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
         dotsPageIndicator.setPager(pager);
 
-       /* @Override
+        /*@Override
             public android.app.Fragment instantiateItem(ViewGroup viewGroup, int i, int i1) {
                AssessmentFragment fragment = new AssessmentFragment();
                Bundle b = new Bundle();

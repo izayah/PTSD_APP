@@ -23,5 +23,21 @@
         android:layout_gravity="center_horizontal|top"
         xmlns:android="http://schemas.android.com/apk/res/android">
     </android.support.wearable.view.DotsPageIndicator>
+    <!--<android.app.Fragment
+        android:name="com.example.ptsd.AssessmentFragment"
+        android:layout_width="match_parent"
+        android:id="@+id/question1"
+        android:layout_height="wrap_content"
+        android:text="@string/Question1">
+
+    </android.app.Fragment>
+    <android.app.Fragment
+        android:name="com.example.ptsd.AssessmentFragment"
+        android:layout_width="match_parent"
+        android:id="@+id/question2"
+        android:layout_height="wrap_content"
+        android:text="@string/Question2">
+
+    </android.app.Fragment>-->
 </FrameLayout>
     </android.support.wearable.view.BoxInsetLayout>

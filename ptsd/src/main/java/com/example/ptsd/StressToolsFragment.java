@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -102,7 +103,12 @@ public class StressToolsFragment extends Fragment implements RecognitionListener
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
 // Start the activity, the intent will be populated with the speech text
+        //startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        /*intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speech_prompt));*/
         startActivityForResult(intent, SPEECH_REQUEST_CODE);
+
     }
 
     @Override
