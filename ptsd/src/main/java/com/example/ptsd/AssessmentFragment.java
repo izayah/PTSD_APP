@@ -1,6 +1,5 @@
 package com.example.ptsd;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,7 +91,7 @@ public class AssessmentFragment extends android.app.Fragment {
             text.setText(R.string.Question10);
         }*/
         //text.setText("ok");
-        play=(Button) v.findViewById(R.id.play);
+        /*play=(Button) v.findViewById(R.id.play);
         pause=(Button) v.findViewById(R.id.pause);
 
         final MediaPlayer sound=MediaPlayer.create(getActivity(), R.raw.rain);
@@ -110,7 +109,7 @@ public class AssessmentFragment extends android.app.Fragment {
                 sound.pause();
 
             }
-        });
+        });*/
         return v;
     }
 

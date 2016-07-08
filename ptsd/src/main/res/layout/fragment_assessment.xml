@@ -7,10 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
-
-        android:textColor="@color/primary_text_light"/>
-    <Button
+        android:layout_margin="8dp"/>
+    <!--<Button
         style="?android:attr/buttonStyleSmall"
         android:theme="@style/Theme.AppCompat.Light"
         android:layout_width="wrap_content"
@@ -27,7 +25,7 @@
         android:text="@string/pause"
         android:id="@+id/pause"
         android:layout_gravity="right|bottom" />
-    <!--android:text="@string/question1"-->
+    &lt;!&ndash;android:text="@string/question1"&ndash;&gt;-->
 
 </FrameLayout>
 

@@ -17,7 +17,6 @@
             android:layout_weight="1"
             android:text="@string/assessment_button"
             android:id="@+id/button1"
-            android:background="#A5A5AF"
             android:onClick="OpenAssessment"/>
 
     <Button
@@ -26,7 +25,6 @@
         android:text="@string/stress_tools_button"
         android:id="@+id/button2"
         android:layout_weight="1"
-        android:background="#68BAA7"
         android:onClick="OpenStressTools"/>
 
 
