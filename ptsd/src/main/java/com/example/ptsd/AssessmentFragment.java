@@ -63,6 +63,10 @@ public class AssessmentFragment extends android.app.Fragment {
         super.onViewCreated(container, savedInstanceState);
         TextView text = (TextView) v.findViewById(R.id.text);
         //string q = "R.string.Question" + q_num;
+        /*
+
+        use the parameters of the fragment here instead of an if statement)
+         */
         if(currentQuestion == 1) {
             text.setText(R.string.Question1);
         }

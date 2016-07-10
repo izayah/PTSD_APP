@@ -10,7 +10,11 @@
     tools:context="com.example.ptsd.MainActivity"
     tools:deviceIds="wear_round">
 
-
+    <android.support.wearable.view.BoxInsetLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="15dp">
     <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -27,7 +31,7 @@
         android:layout_weight="1"
         android:onClick="OpenStressTools"/>
 
-
+</android.support.wearable.view.BoxInsetLayout>
 </LinearLayout>
 
 

@@ -1,3 +1,8 @@
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="15dp">
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
@@ -28,4 +33,4 @@
     &lt;!&ndash;android:text="@string/question1"&ndash;&gt;-->
 
 </FrameLayout>
-
+</android.support.wearable.view.BoxInsetLayout>

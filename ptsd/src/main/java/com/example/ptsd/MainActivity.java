@@ -1,38 +1,33 @@
 package com.example.ptsd;
 
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends WearableActivity implements SensorEventListener{
+public class MainActivity extends AppCompatActivity{//WearableActivity implements SensorEventListener{
 
     private TextView mTextView;
     private final String TAG = "Ambient Mode";
-    Button testButton;
+    /*Button testButton;
     private Sensor mHeartRateSensor;
-    private SensorManager mSensorManager;
+    private SensorManager mSensorManager;*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testButton = (Button) findViewById(R.id.button1);
-        monitorHeart();
+        //testButton = (Button) findViewById(R.id.button1);
+        /*monitorHeart();
         setAmbientEnabled();
-        monitorHeart();
+        monitorHeart();*/
 
     }
 
-    public void OpenAssessment(View view){
+   /* public void OpenAssessment(View view){
             Intent startAssessment = new Intent(MainActivity.this, AssessmentActivity.class);
             startActivity(startAssessment);
         }
@@ -43,7 +38,7 @@ public class MainActivity extends WearableActivity implements SensorEventListene
     @Override
     public void onEnterAmbient(Bundle ambientDetails) {
         super.onEnterAmbient(ambientDetails);
-        /*we start getting heart rate info here*/
+        *//*we start getting heart rate info here*//*
         monitorHeart();
         updateDisplay();
     }
@@ -72,7 +67,7 @@ public class MainActivity extends WearableActivity implements SensorEventListene
         mSensorManager = ((SensorManager)getSystemService(SENSOR_SERVICE));
         mHeartRateSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
         mSensorManager.registerListener(this, mHeartRateSensor, SensorManager.SENSOR_DELAY_NORMAL);
-    }
+    }*/
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         Log.d(TAG, "onAccuracyChanged - accuracy: " + accuracy);
