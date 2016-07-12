@@ -13,7 +13,7 @@ android {
 
     compileSdkVersion 24
 
-    buildToolsVersion '23.0.3'
+    buildToolsVersion '24.0.0'
     defaultConfig {
         applicationId "com.example.ptsd"
         minSdkVersion 21
@@ -42,4 +42,5 @@ dependencies {
     compile 'com.android.support:support-v13:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.google.android.gms:play-services-appindexing:9.2.0'
 }

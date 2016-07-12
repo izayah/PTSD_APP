@@ -28,8 +28,8 @@ Button play, pause;
                 sound.pause();
 
             }
-        });*/
-
+        });
+*/
 
                                        }
 
