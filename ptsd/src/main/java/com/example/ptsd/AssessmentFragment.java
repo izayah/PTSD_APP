@@ -78,38 +78,18 @@ public class AssessmentFragment extends android.app.Fragment {
         if(currentQuestion == 5) {
             text.setText(R.string.Question5);
         }
-       /* if(getArguments().getInt("q_number") == 7) {
+       if(currentQuestion == 6) {
+            text.setText(R.string.Question6);
+        }
+        if(currentQuestion == 7) {
             text.setText(R.string.Question7);
         }
-        if(getArguments().getInt("q_number") == 8) {
+        if(currentQuestion == 8) {
             text.setText(R.string.Question8);
         }
-        if(getArguments().getInt("q_number") == 9) {
+        if(currentQuestion == 9) {
             text.setText(R.string.Question9);
         }
-        if(getArguments().getInt("q_number") == 10) {
-            text.setText(R.string.Question10);
-        }*/
-        //text.setText("ok");
-        /*play=(Button) v.findViewById(R.id.play);
-        pause=(Button) v.findViewById(R.id.pause);
-
-        final MediaPlayer sound=MediaPlayer.create(getActivity(), R.raw.rain);
-
-        play.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                sound.start();
-
-            }
-        });
-        pause.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                sound.pause();
-
-            }
-        });*/
         return v;
     }
 
@@ -152,3 +132,24 @@ public class AssessmentFragment extends android.app.Fragment {
         void onFragmentInteraction(Uri uri);
     }*/
 }
+
+//text.setText("ok");
+        /*play=(Button) v.findViewById(R.id.play);
+        pause=(Button) v.findViewById(R.id.pause);
+
+        final MediaPlayer sound=MediaPlayer.create(getActivity(), R.raw.rain);
+
+        play.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                sound.start();
+
+            }
+        });
+        pause.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                sound.pause();
+
+            }
+        });*/

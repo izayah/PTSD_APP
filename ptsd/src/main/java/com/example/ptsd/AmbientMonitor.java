@@ -2,6 +2,7 @@ package com.example.ptsd;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class AmbientMonitor extends IntentService implements SensorEventListener
     private SensorManager mSensorManager;
     boolean status;
     String testString = "Now returning from AmbientMonitor service.";
+    IntentFilter mStatusIntentFilter = new IntentFilter("AmbientMonitor");
 
     public AmbientMonitor(String name) {
         super(name);
@@ -33,8 +35,14 @@ public class AmbientMonitor extends IntentService implements SensorEventListener
     protected void onHandleIntent(Intent intent) {
         //Get information from the incoming intent
         String dataString = intent.getDataString();
+        Log.d("AmbientMonitor", "onHandleIntent");
         monitorHeart();
-        Log.d(testString, "onHandleIntent");
+        Log.d("AmbientMonitor", "Operations done in ambient. Now broadcasting");
+        //send broadcast back to main
+        Intent tempIntent = new Intent("AmbientMonitor");
+
+        LocalBroadcastManager.getInstance(this).sendBroadcast(tempIntent);
+        Log.d("AmbientMonitor", "signal sent");
     }
 
     private static final SimpleDateFormat AMBIENT_DATE_FORMAT =
@@ -51,13 +59,15 @@ public class AmbientMonitor extends IntentService implements SensorEventListener
             status = true;
         }*/
 
-        status = true;
-        if(status==true){
-            Intent tempIntent = new Intent(testString);
-            Log.d("1", "monitorHeart()");
-            LocalBroadcastManager.getInstance(this).sendBroadcast(tempIntent);
-            Log.d("2", "monitorheart 2");
-        }
+      /*  status = true;
+        if(status==true){*/
+
+        Log.d("AmbientMonitor", "monitorHeart()");
+        //Sends broadcast signalling end of operation
+        //}
+        Intent tempIntent = new Intent(testString);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(tempIntent);
+        Log.d("AmbientMonitor", "signal2()");
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
