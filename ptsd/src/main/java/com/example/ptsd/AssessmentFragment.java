@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 //import android.support.v4.app.Fragment;
@@ -18,7 +19,7 @@ import android.widget.TextView;
  * Use the {@link AssessmentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AssessmentFragment extends android.app.Fragment {
+public class AssessmentFragment extends android.app.Fragment implements View.OnClickListener {
     /*//public class AssessmentFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,7 +63,17 @@ public class AssessmentFragment extends android.app.Fragment {
         View v = inflater.inflate(R.layout.fragment_assessment, container, false);
         super.onViewCreated(container, savedInstanceState);
         TextView text = (TextView) v.findViewById(R.id.text);
-        //string q = "R.string.Question" + q_num;
+        RadioButton button1 = (RadioButton) v.findViewById(R.id.likert1);
+        button1.setOnClickListener(this);
+        RadioButton button2 = (RadioButton) v.findViewById(R.id.likert2);
+        button2.setOnClickListener(this);
+        RadioButton button3 = (RadioButton) v.findViewById(R.id.likert3);
+        button3.setOnClickListener(this);
+        RadioButton button4 = (RadioButton) v.findViewById(R.id.likert4);
+        button4.setOnClickListener(this);
+        RadioButton button5 = (RadioButton) v.findViewById(R.id.likert5);
+        button5.setOnClickListener(this);
+
         if(currentQuestion == 1) {
             text.setText(R.string.Question1);
         }
@@ -91,6 +102,40 @@ public class AssessmentFragment extends android.app.Fragment {
             text.setText(R.string.Question9);
         }
         return v;
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.likert1:
+                if (checked)
+                    //score+=5;
+                    break;
+            case R.id.likert2:
+                if (checked)
+                    //score+=4;
+                    break;
+            case R.id.likert3:
+                if (checked)
+                    //score+=3;
+                    break;
+            case R.id.likert4:
+                if (checked)
+                    //score+=2;
+                    break;
+            case R.id.likert5:
+                if (checked)
+                    //score+=1;
+                    break;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        //view.onRadioButto
     }
 
     /*// TODO: Rename method, update argument and hook method into UI event

@@ -1,33 +1,54 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="fill_parent">
+<FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <android.support.wearable.view.BoxInsetLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="15dp">
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-
+        android:layout_gravity="top"
         android:textColor="@color/primary_text_light"/>
-   <!-- <Button
-        style="?android:attr/buttonStyleSmall"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/play"
-        android:id="@+id/play"
-        android:layout_gravity="left|bottom" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:theme="@style/Theme.AppCompat.Light"
-        android:layout_width="wrap_content"
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pause"
-        android:id="@+id/pause"
-        android:layout_gravity="right|bottom" />
-    android:text="@string/question1"-->
-
+        android:layout_gravity="bottom"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+        <RadioButton android:id="@+id/likert1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/likert1"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/likert2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/likert2"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/likert3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/likert3"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/likert4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/likert4"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/likert5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/likert5"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+</android.support.wearable.view.BoxInsetLayout>
 </FrameLayout>
+</ScrollView>
 

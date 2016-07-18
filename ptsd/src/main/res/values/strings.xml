@@ -14,10 +14,14 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
     <string name="test_question">Here will be a test question with things that are testy and questiony</string>
     <string name="stress_tools_button">Stress Tools</string>
     <string name="play">play</string>
+    <string name="likert1">To a Great Extent</string>
+    <string name="likert2">Strongly</string>
+    <string name="likert3">Some</string>
+    <string name="likert4">Very little</string>
+    <string name="likert5">Not at all</string>
     <string name="pause">pause</string>
     <string name="question1">Question1</string>
     <string name="question2">Question1</string>
-    <string name="random_text">How often in the past week ...........yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy..</string>
     <string name="title_activity_ambient">AmbientActivity</string>
     <string name="hello_world">Hello World!</string>
     <string name="Question1">In the past month, how much were you bothered by repeated, disturbing, and unwanted memories of the stressful experience?
