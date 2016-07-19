@@ -37,10 +37,11 @@ android {
 dependencies {
     //compile 'android.support.v4.view.PagerAdapter'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.google.android.support:wearable:2.0.0-alpha1'
-    compile 'com.google.android.gms:play-services-wearable:9.2.0'
+    compile 'com.google.android.support:wearable:2.0.0-alpha2'
+    compile 'com.google.android.gms:play-services-wearable:9.2.1'
     compile 'com.android.support:support-v13:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.google.android.gms:play-services-appindexing:9.2.0'
+    compile 'com.android.support:design:24.0.0'
 }

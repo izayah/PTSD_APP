@@ -22,7 +22,8 @@ public class StressToolsListFragment extends ListFragment {
 
     public void populateStressToolsList(){
         //add names of all tools to the vector
-        tool_list.add("breathing");
+        tool_list.add("Breathing");
+        tool_list.add("Muscle Relaxation");
 
         for (int i = 0; i < stress_tool_count; i++) {
             //initialize fragments here and add them to the list

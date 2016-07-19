@@ -11,7 +11,8 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="assessment_button">Assessment</string>
-    <string name="test_question">Here will be a test question with things that are testy and questiony</string>
+    <string name="breathing_tool_button">Breathing Exercise</string>
+    <string name="muscle_relaxation_button">Muscle Relaxation Exercise</string>
     <string name="stress_tools_button">Stress Tools</string>
     <string name="play">play</string>
     <string name="likert1">To a Great Extent</string>
@@ -44,9 +45,6 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
 </string>
     <string name="Question10">In the past month, how much were you bothered by feeling distant or cut off from other people?
 </string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_display_message">Assessment</string>
     <string name="title_activity_stress_tools">StressToolsActivity</string>
@@ -139,4 +137,6 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_muscle__relaxation_">Muscle_Relaxation_Activity</string>
+    <string name="title_activity_breathing">BreathingActivity</string>
 </resources>
