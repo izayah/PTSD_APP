@@ -25,6 +25,7 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
     <string name="question2">Question1</string>
     <string name="title_activity_ambient">AmbientActivity</string>
     <string name="hello_world">Hello World!</string>
+    <string name="Question0">Swipe up and down to scroll through the questions. Once you have answered all questions, hit the finish button</string>
     <string name="Question1">In the past month, how much were you bothered by repeated, disturbing, and unwanted memories of the stressful experience?
 </string>
     <string name="Question2">In the past month, how much were you bothered by sudden feelings or actions as if the stressful experience were actually happening again?
@@ -139,4 +140,5 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
     </string>
     <string name="title_activity_muscle__relaxation_">Muscle_Relaxation_Activity</string>
     <string name="title_activity_breathing">BreathingActivity</string>
+    <string name="title_activity_intervention">InterventionActivity</string>
 </resources>

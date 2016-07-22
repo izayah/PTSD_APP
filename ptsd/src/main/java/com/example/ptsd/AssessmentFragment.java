@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -20,17 +19,12 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class AssessmentFragment extends android.app.Fragment implements View.OnClickListener {
-    /*//public class AssessmentFragment extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";*/
     private static int currentQuestion = 0;
-    private int question_number;
+    /*private int question_number;
     private String question_text;
     private String question_response;
     Button play, pause;
-
-    //private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;*/
 
     public AssessmentFragment() {
         // Required empty public constructor
@@ -51,8 +45,8 @@ public class AssessmentFragment extends android.app.Fragment implements View.OnC
    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            question_number = getArguments().getInt("q_number");
-            question_text = "This was made in the AssessmentFragment Class";
+            /*question_number = getArguments().getInt("q_number");
+            question_text = "This was made in the AssessmentFragment Class";*/
         }
 
     @Override
@@ -73,7 +67,9 @@ public class AssessmentFragment extends android.app.Fragment implements View.OnC
         button4.setOnClickListener(this);
         RadioButton button5 = (RadioButton) v.findViewById(R.id.likert5);
         button5.setOnClickListener(this);
-
+        if(currentQuestion == 0){
+            text.setText(R.string.Question0);
+        }
         if(currentQuestion == 1) {
             text.setText(R.string.Question1);
         }
@@ -101,14 +97,21 @@ public class AssessmentFragment extends android.app.Fragment implements View.OnC
         if(currentQuestion == 9) {
             text.setText(R.string.Question9);
         }
+        if(currentQuestion == 10){
+            text.setText(R.string.Question10);
+        }
         return v;
     }
 
     public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
+        /*Check which radio button was clicked and calculate "score" accordingly
+        Also should send a confirmation to activity for every question answered
+        Confirmation is used to determine whether the test is finished or not
+        */
+
+        //this.getActivity().
         switch(view.getId()) {
             case R.id.likert1:
                 if (checked)
@@ -138,7 +141,7 @@ public class AssessmentFragment extends android.app.Fragment implements View.OnC
         //view.onRadioButto
     }
 
-    /*// TODO: Rename method, update argument and hook method into UI event
+    /*
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -173,7 +176,6 @@ public class AssessmentFragment extends android.app.Fragment implements View.OnC
      * >Communicating with Other Fragments</a> for more information.
      *//*
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }*/
 }

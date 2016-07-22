@@ -1,5 +1,7 @@
 package com.example.ptsd;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +18,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity /*WearableActivity*/ implements SensorEventListener{
 
     private String dataUrl = "main";
@@ -24,35 +28,45 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
     private float last_x, last_y, last_z;
     Intent mServiceIntent;
     private SensorManager senSensorManager;
-    private Sensor senAccelerometer;
-    private Sensor senHeartRate;
+    private Sensor senAccelerometer, senHeartBeat, senHeartRate;
     IntentFilter mStatusIntentFilter = new IntentFilter("AmbientMonitor");
 
-    /* MEtronome uses 92 bpm*/
+    /* Metronome uses 92 bpm*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-       senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        senHeartRate = senSensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
+      /*  senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+       senHeartRate = senSensorManager.getDefaultSensor(21);
+       senSensorManager.registerListener(this, senHeartRate , SensorManager.SENSOR_DELAY_NORMAL);
+        /*senHeartRate = senSensorManager.getDefaultSensor(21);
+        //senHeartBeat = senSensorManager.getDefaultSensor(Sensor.TYPE_HEART_BEAT);
+        senHeartBeat = senSensorManager.getDefaultSensor(31);
++
+        //senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
-        senSensorManager.registerListener(this, senHeartRate , SensorManager.SENSOR_DELAY_NORMAL);
-        /* MEtronome uses 92 bpm*/
-        //ResponseReceiver mResponseReceiver = new ResponseReceiver();
-        //beginMonitor();
-        //LocalBroadcastManager.getInstance(this).registerReceiver(mResponseReceiver, mStatusIntentFilter);
+
+        senSensorManager.registerListener(this, senHeartBeat, SensorManager.SENSOR_DELAY_NORMAL);
+
+        List<Sensor> sensors = senSensorManager.getSensorList(Sensor.TYPE_ALL);
+        for(Sensor sensor: sensors){
+            //Log.i("Sensor", sensor.getName()+" "+sensor.);
+        }
+        /* Metronome uses 92 bpm*/
+        ResponseReceiver mResponseReceiver = new ResponseReceiver();
+       //
+        beginMonitor();
+        LocalBroadcastManager.getInstance(this).registerReceiver(mResponseReceiver, mStatusIntentFilter);
 
         //The following lines are used to upstart the AmbientMonitor service periodically
         //First, a new intent is created and used to create a Pending Intent -
-       /* Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
         Intent intent = new Intent(this, AmbientMonitor.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 10*1000, pintent);*/
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 10*1000, pintent);
     }
 
     public void OpenAssessment(View view) {
@@ -76,7 +90,7 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
 
             long curTime = System.currentTimeMillis();
 /*increase interval to reduce amount of data*/
-            if ((curTime - lastUpdate) > 1000) {
+            if ((curTime - lastUpdate) > 100) {
                 long diffTime = (curTime - lastUpdate);
                 lastUpdate = curTime;
 
@@ -84,20 +98,28 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
                 last_x = x;
                 last_y = y;
                 last_z = z;
-                Log.d("Velocity",speed + " m/s^2" );
+                //Log.i("Velocity",speed + " m/s" );
 
                 int speedThreshold = 150;
                 if(speed >= speedThreshold){
-                   Log.d("Speed Threshold", "Speed threshold has been reached");
+                   Log.i("Speed Threshold", "Speed threshold has been reached");
                 }
             }
+        }
+
+        if(mySensor.getType() == Sensor.TYPE_HEART_BEAT){
+            Log.i("Heart Beat", ""+sensorEvent.values[0]);
+        }
+
+        if (mySensor.getType() == Sensor.TYPE_HEART_RATE) {
+            Log.i("Heart Rate", ""+sensorEvent.values[0]);
         }
     }
 
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
-        //Log.d("Accuracy", i+"");
+        Log.d("Accuracy", i+"");
     }
 
     protected void onPause() {
@@ -107,7 +129,9 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
 
     protected void onResume() {
         super.onResume();
-        //senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        /*senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        senSensorManager.registerListener(this, senHeartRate, SensorManager.SENSOR_DELAY_NORMAL);
+        senSensorManager.registerListener(this, senHeartBeat, SensorManager.SENSOR_DELAY_NORMAL);*/
     }
 
     /* Starts the heart rate monitor process
@@ -125,18 +149,13 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
 
     public class ResponseReceiver extends BroadcastReceiver
     {
-        // Prevents instantiation
-        public ResponseReceiver() {
-            //Log.d("Main", "ResponseReceiver Created");
-        }
+        public ResponseReceiver() {}
 
         public void onReceive(Context context, Intent intent) {
-            //Log.d("Main", "Received Intent from BroadCast");
-            testButton = (Button) findViewById(R.id.button1);
-            testButton.setText(intent.getAction());
+            //testButton = (Button) findViewById(R.id.button1);
+            Log.i("Main:onReceive", intent.getAction());
+            //testButton.setText(intent.getAction());
         }
     }
-
-
 }
 

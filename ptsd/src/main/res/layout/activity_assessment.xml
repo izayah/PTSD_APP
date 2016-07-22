@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:padding="15dp">
+    <android.support.wearable.view.DotsPageIndicator
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/page_indicator"
+        android:layout_gravity="center_horizontal|top"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    </android.support.wearable.view.DotsPageIndicator>
 <FrameLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/frame"
@@ -16,28 +23,10 @@
         android:keepScreenOn="true"
         android:id="@+id/pager"/>
 
-    <android.support.wearable.view.DotsPageIndicator
-        android:layout_height="wrap_content"
+    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
-        android:id="@+id/page_indicator"
-        android:layout_gravity="center_horizontal|top"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-    </android.support.wearable.view.DotsPageIndicator>
-    <!--<android.app.Fragment
-        android:name="com.example.ptsd.AssessmentFragment"
-        android:layout_width="match_parent"
-        android:id="@+id/question1"
         android:layout_height="wrap_content"
-        android:text="@string/Question1">
-
-    </android.app.Fragment>
-    <android.app.Fragment
-        android:name="com.example.ptsd.AssessmentFragment"
-        android:layout_width="match_parent"
-        android:id="@+id/question2"
-        android:layout_height="wrap_content"
-        android:text="@string/Question2">
-
-    </android.app.Fragment>-->
+        android:layout_gravity="right|center_vertical"
+        android:onClick="finishAssessment"/>
 </FrameLayout>
     </android.support.wearable.view.BoxInsetLayout>

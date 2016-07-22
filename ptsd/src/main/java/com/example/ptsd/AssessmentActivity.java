@@ -18,7 +18,6 @@ import java.util.List;
 
 public class AssessmentActivity extends AppCompatActivity{
             //implements AssessmentFragment.OnFragmentInteractionListener {
-
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -26,13 +25,8 @@ public class AssessmentActivity extends AppCompatActivity{
      * loaded fragment in memory. If this becomes too memory intensive, it
      * may be best to switch to a
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
-     */
-
-    /**
      * The {@link ViewPager} that will host the section contents.
      */
-
-   // private android.support.wearable.view.FragmentGridPagerAdapter mFragmentGridPagerAdapter;
     private static final int SPEECH_REQUEST_CODE = 0;
 
     @Override
@@ -74,8 +68,6 @@ public class AssessmentActivity extends AppCompatActivity{
             public void destroyItem(ViewGroup viewGroup, int i, int i1, Object o) {
             }
         };*/
-
-
     }
 
     @Override
@@ -105,10 +97,19 @@ public class AssessmentActivity extends AppCompatActivity{
         return;
     }*/
 
-    public void beginAssessment(){
+    public void finishAssessment(){
+        /* Checks to see if the user has answered all questions before finishing the assessment
+        If true, finishes, saves and returns to the main menu and ends AssessmentActivity
+        If false, displays a notification and stays on the same activity
+         */
+        if(true){
 
-
-        return;
+        }
+        else {
+            Intent mainAct = new Intent(AssessmentActivity.this, MainActivity.class);
+            startActivity(mainAct);
+            this.finish();
+        }
     }
     /*public void openMain(View view){
         Intent startAssessment = new Intent(AssessmentActivity.this, MainActivity.class);
