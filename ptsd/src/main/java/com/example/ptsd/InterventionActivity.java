@@ -1,11 +1,11 @@
 package com.example.ptsd;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.wearable.view.WatchViewStub;
+import android.os.Vibrator;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class InterventionActivity extends Activity {
+public class InterventionActivity extends AppCompatActivity {
 
     private TextView mTextView;
 
@@ -13,12 +13,7 @@ public class InterventionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intervention);
-        final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-            @Override
-            public void onLayoutInflated(WatchViewStub stub) {
-                mTextView = (TextView) stub.findViewById(R.id.text);
-            }
-        });
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        //vibrator.vibrate(5000);
     }
 }

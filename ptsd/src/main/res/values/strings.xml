@@ -14,12 +14,14 @@ This is one breath. Now inhale again and repeat the cycle three more times for a
     <string name="breathing_tool_button">Breathing Exercise</string>
     <string name="muscle_relaxation_button">Muscle Relaxation Exercise</string>
     <string name="stress_tools_button">Stress Tools</string>
+    <string name="vibratior_pause_button">OK</string>
     <string name="play">play</string>
     <string name="likert1">To a Great Extent</string>
     <string name="likert2">Strongly</string>
     <string name="likert3">Some</string>
     <string name="likert4">Very little</string>
     <string name="likert5">Not at all</string>
+    <string name="intervention_text">The application has noticed that you are experiencing high levels of stress symptoms. How are you feeling right now?</string>
     <string name="pause">pause</string>
     <string name="question1">Question1</string>
     <string name="question2">Question1</string>
