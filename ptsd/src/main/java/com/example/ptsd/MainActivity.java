@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
 
     public void OpenStressTools(View view) {
         Intent startStressTools = new Intent(MainActivity.this, StressToolsActivity.class);
-        //startActivity(startStressTools);
-        Intent startIntervention = new Intent(MainActivity.this, InterventionActivity.class);
-        startActivity(startIntervention);
+        startActivity(startStressTools);
+        /*Intent startIntervention = new Intent(MainActivity.this, BreathingActivity.class);
+        startActivity(startIntervention);*/
     }
 
     @Override
@@ -130,9 +130,17 @@ public class MainActivity extends AppCompatActivity /*WearableActivity*/ impleme
             Log.i("Main:onReceive", ""+intent.getDataString());
             //if AmbientMonitor determines the user is in a critical state,
             //start up the intervention activity
-            if(intent.getAction() == "Intervene"){
+            if(intent.getAction().equals("Intervene")){
                 Intent startIntervention = new Intent(MainActivity.this, InterventionActivity.class);
                 startActivity(startIntervention);
+            }
+            if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
+                // Set the alarm here.
+                Calendar cal = Calendar.getInstance();
+                /*Intent intent = new Intent(this, AmbientMonitor.class);
+                PendingIntent pintent = PendingIntent.getService(getConte, 0, intent, 0);
+                AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 10*10000, pintent);*/
             }
         }
     }

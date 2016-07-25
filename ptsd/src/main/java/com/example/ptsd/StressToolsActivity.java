@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class StressToolsActivity extends Activity {
-Button play, pause;
+Button breathing, muscle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stress_tools);
+        /*breathing = (Button) findViewById(R.id.breathing_tool_button);
+        breathing.setOnClickListener(new View.OnClickListener*/
     }
 
     public void startBreathingTool(View view) {
